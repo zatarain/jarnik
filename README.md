@@ -102,7 +102,7 @@ jarnik uninstall
 * Command: `help`
 * Description: Create a new project base structure.
 * Shortcut: `h`
-* Syntax: `jarnik {help | -h | /h} [command]`
+* Syntax: `jarnik {help | -h | /?} [command]`
 * Parameters:
     * `command`  Optional. Specific command to view documentation. A help summary for all commands will be shown if is omitted.
 * Examples:
@@ -111,7 +111,7 @@ jarnik uninstall
 jarnik help
 jarnik help new
 jarnik -h new
-jarnik /n new
+jarnik new /?
 ```
 
 ### Create a new project
