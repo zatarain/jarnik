@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "This is the help for: $1"

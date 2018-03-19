@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "Uninstalling jarnik: $1"
