@@ -99,9 +99,9 @@ jarnik uninstall
 
 ### Help
 
-* Command: h`elp`
+* Command: `help`
 * Description: Create a new project base structure.
-* Shortcut: h
+* Shortcut: `h`
 * Syntax: `jarnik {help | -h | /h} [command]`
 * Parameters:
     * `command`  Optional. Specific command to view documentation. A help summary for all commands will be shown if is omitted.
