@@ -58,7 +58,7 @@ We will call “legos” to the built repositories.
 ### Installation
 
 * Command: `install`
-* Description: Installs the latest version of Jarnik Build System in the Operating System.
+* Description: Installs the latest version of Jarník Build System in the Operating System.
 * Syntax: `jarnik install [path]`
 * Parameters:
     * `path`  Optional. Destination folder to install. By default, it will be `/usr/bin`. In that case, super user privileges may be required.
@@ -72,7 +72,7 @@ jarnik install ~/bin
 ### Upgrade
 
 * Command: `upgrade`
-* Description: Upgrades Jarnik Build System in the Operating System to the latest version available in the respository.
+* Description: Upgrades Jarník Build System in the Operating System to the latest version available in the respository.
 * Syntax: `jarnik upgrade`
 * Parameters:
     * None, but super user privileges may be required.
@@ -86,7 +86,7 @@ jarnik upgrade
 ### Uninstallation
 
 * Command: `uninstall`
-* Description: Removes Jarnik Build System from the Operating System.
+* Description: Removes Jarník Build System from the Operating System.
 * Syntax: `jarnik uninstall`
 * Parameters:
     * None, but super user privileges may be required.
