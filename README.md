@@ -97,6 +97,23 @@ sudo jarnik uninstall
 jarnik uninstall
 ```
 
+### Help
+
+* Command: h`elp`
+* Description: Create a new project base structure.
+* Shortcut: h
+* Syntax: `jarnik {help | -h | /h} [command]`
+* Parameters:
+    * `command`  Optional. Specific command to view documentation. A help summary for all commands will be shown if is omitted.
+* Examples:
+
+```
+jarnik help
+jarnik help new
+jarnik -h new
+jarnik /n new
+```
+
 ### Create a new project
 
 * Command: `new`
