@@ -7,22 +7,21 @@ Syntax:
 	jarnik command [parameters]
 
 Commands:
-	attach		a 	Attaches a cloud environment.
-	build		b 	Build repositories in the current project.
-	clean		c 	Remove the legos in the project.
-	detach		d 	Dettaches a cloud environment.
-	exec		e 	Run a command over the repositories in the current project.
-	help		h 	Show this message or provide detailed help for an specific command.
-	import		i 	Clone a repository.
-	list		l 	List details about current project.
+	build		b 	Builds repositories in the current project.
+	clean		c 	Removes the legos in the project.
+	deploy		d 	Deploys legos from the current project to a cloud environment.
+	exec		e 	Runs a command over the repositories in the current project.
+	help		h 	Shows this message or provide detailed help for an specific command.
+	import		i 	Clones a repository.
+	list		l 	Lists details about current project.
 	mst			m 	Minimun Spanning Tree
 	new			n 	Creates a new project.
 	post		p 	Posts a new code review.
 	release			Build + Test + Deploy
 	remove		r 	Removes repositories from the current project.
-	sanitize	s 	Reformat source code.
-	test		t 	Perform unit testing for repositories in the current project.
-	update		u 	Updates the a cloud environment with the current build.
+	sanitize	s 	Sanitizes the source code.
+	test		t 	Performs unit testing for repositories in the current project.
+	unlink		u 	Unlinks cloud environments.
 	version		v 	Shows the current JBS version.
 	wtf				Checks format of the source code.
 
