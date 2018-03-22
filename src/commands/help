@@ -1,2 +1,55 @@
 #!/bin/sh
-echo "This is the help for: $1"
+
+: '
+Jarník Build System [JBS]
+
+Syntax:
+	jarnik command [parameters]
+
+Commands:
+	attach		a 	Attaches a cloud environment.
+	build		b 	Build repositories in the current project.
+	clean		c 	Remove the legos in the project.
+	detach		d 	Dettaches a cloud environment.
+	exec		e 	Run a command over the repositories in the current project.
+	help		h 	Show this message or provide detailed help for an specific command.
+	import		i 	Clone a repository.
+	list		l 	List details about current project.
+	mst			m 	Minimun Spanning Tree
+	new			n 	Creates a new project.
+	post		p 	Posts a new code review.
+	release			Build + Test + Deploy
+	remove		r 	Removes repositories from the current project.
+	sanitize	s 	Reformat source code.
+	test		t 	Perform unit testing for repositories in the current project.
+	update		u 	Updates the a cloud environment with the current build.
+	version		v 	Shows the current JBS version.
+	wtf				Checks format of the source code.
+
+	install			Installs JBS.
+	uninstall		Uninstalls JBS.
+	upgrade			Upgrades JBS.
+
+For further information run:
+	jarnik help <command>
+
+#'
+
+command=$1
+case "$command" in
+	install)
+		command=install;;
+	uninstall)
+		command=uninstall;;
+	upgrade)
+		command=upgrade;;
+	new)
+		command=new;;
+	*)
+		command=help;;
+esac
+
+command=`dirname $0`/$command
+if [ -x $command ]; then
+	sed -n "/^: '$/,/^#'$/p" $command | sed '1,1d;$d'
+fi

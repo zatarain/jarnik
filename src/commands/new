@@ -1,2 +1,30 @@
 #!/bin/sh
-echo "New project: $1"
+
+: '
+Creates a new Jarník project base structure.
+
+Syntax:
+	jarnik {new | -n | /n} [path/]name
+
+Parameters:
+	path Optional. Path to create the new project folder. Current directory will be used by default.
+	name Required. Name of the project folder.
+
+Examples:
+	jarnik new myproject
+	jarnik new mystuff/myproject
+	jarnik -n myproject
+	jarnik /n mystuff/myproject
+#'
+
+project=$1
+working=`pwd`
+echo "Creating new project: '$project'"
+if mkdir -p $project; then
+	cd $project
+	pwd
+	cd $working
+	echo "Project '$project' was created sucessfully!"
+else
+	echo "Unable to create project '$project'."
+fi

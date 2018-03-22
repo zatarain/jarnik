@@ -1,27 +1,20 @@
 #!/bin/sh
 
 case "$1" in
-	install )
-		COMMAND=install;;
-	uninstall )
-		COMMAND=uninstall;;
-	upgrade )
-		COMMAND=upgrade;;
-	new|-n|/n )
-		COMMAND=new;;
-	help|-h|/? )
-		COMMAND=help;;
-	* )
-		COMMAND=help;;
+	install)
+		command=install;;
+	uninstall)
+		command=uninstall;;
+	upgrade)
+		command=upgrade;;
+	new|-n|/n)
+		command=new;;
+	help|-h|/?|*)
+		command=help;;
 esac
 
-echo '#:' $# 
-
-if [ $# -ge 2 ]; then
+if [ $# -ge 1 ]; then
 	shift
 fi
 
-echo Running: $0
-echo Command: $COMMAND
-path=`dirname $0`
-$path/.jarnik/$COMMAND "$@" 
+`dirname $0`/.jarnik/$command "$@" 
