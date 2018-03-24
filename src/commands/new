@@ -1,10 +1,10 @@
 #!/bin/sh
 
 : "
-Creates a new Jarník project base structure.
+Creates a new Jarník project with basic structure.
 
 Syntax:
-	jarnik {new | -n | /n} [path/]name
+	jarnik new [path/]name
 
 Parameters:
 	path Optional. Path to create the new project folder. Current directory will be used by default.
@@ -13,8 +13,6 @@ Parameters:
 Examples:
 	jarnik new myproject
 	jarnik new mystuff/myproject
-	jarnik -n myproject
-	jarnik /n mystuff/myproject
 : "
 
 . `dirname $0`/.core

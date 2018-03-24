@@ -7,28 +7,28 @@ Syntax:
 	jarnik command [parameters]
 
 Commands:
-	build		b	Builds repositories in the current project.
-	clean		c	Removes the legos in the project.
-	deploy		d	Deploys legos from the current project to a cloud environment.
-	exec		e	Runs a command over the repositories in the current project.
-	help		h	Shows this message or provide detailed help for an specific command.
-	import		i	Clones a repository.
-	list		l	Lists details about current project.
-	mst			m	Minimun Spanning Tree
-	new			n	Creates a new project.
-	post		p	Posts a new code review.
-	release			Build + Test + Deploy
-	remove		r	Removes repositories from the current project.
-	sanitize	s	Sanitizes the source code.
-	test		t	Performs unit testing for repositories in the current project.
-	unlink		u	Unlinks cloud environments.
-	version		v	Shows the current JBS version.
-	wtf				Checks format of the source code.
+	build		Builds repositories in the current project.
+	clean		Removes the legos in the project.
+	deploy		Deploys legos from the current project to a cloud environment.
+	exec		Runs a command over the repositories in the current project.
+	help		Shows this message or provide detailed help for an specific command.
+	import		Clones a repository.
+	list		Lists details about current project.
+	mst			Minimun Spanning Tree
+	new			Creates a new project with basic structure.
+	post		Posts a new code review.
+	release		Build + Test + Deploy
+	remove		Removes repositories from the current project.
+	sanitize	Sanitizes the source code.
+	test		Performs unit testing for repositories in the current project.
+	unlink		Unlinks cloud environments.
+	version		Shows the current JBS version.
+	wtf			Checks format of the source code.
 
-	install			Installs JBS.
-	setup			
-	uninstall		Uninstalls JBS.
-	upgrade			Upgrades JBS.
+	install		Installs JBS.
+	setup		Set up JBS configuration.
+	uninstall	Uninstalls JBS.
+	upgrade		Upgrades JBS.
 
 For further information run:
 	jarnik help <command>
