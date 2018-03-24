@@ -5,7 +5,7 @@ Jarník Build System [JBS]
 
 export jarnik=`basename $0`
 export jarnikdir=`dirname $0`/.$jarnik
-. `dirname $0`/.$jarnik/.core
+. $jarnikdir/.core
 
 case "$1" in
 	install) command=install;;
