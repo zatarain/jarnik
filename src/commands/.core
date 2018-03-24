@@ -23,3 +23,7 @@ info(){
 debug(){
 	>&2 printf '%b' "\033[39;1m[  DEBUG  ]: $@\033[0m\n"
 }
+
+syntax(){
+	>&2 echo "`grep --after=1 Syntax: "$0" | head -2`"
+}

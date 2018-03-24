@@ -1,7 +1,11 @@
 #!/bin/sh
 
 : "
-Jarník Build System [JBS]
+Name
+	Jarník Build System [JBS]
+
+Description:
+	Programming language independent build system.
 
 Syntax:
 	jarnik command [parameters]
@@ -9,7 +13,7 @@ Syntax:
 Commands:
 	build		Builds repositories in the current project.
 	clean		Removes the legos in the project.
-	deploy		Deploys legos from the current project to a cloud environment.
+	deploy		Deploys legos from the current project to a Kepler environment.
 	exec		Runs a command over the repositories in the current project.
 	help		Shows this message or provide detailed help for an specific command.
 	import		Clones a repository.
@@ -21,7 +25,7 @@ Commands:
 	remove		Removes repositories from the current project.
 	sanitize	Sanitizes the source code.
 	test		Performs unit testing for repositories in the current project.
-	unlink		Unlinks cloud environments.
+	unlink		Unlinks Kepler environments.
 	version		Shows the current JBS version.
 	wtf			Checks format of the source code.
 

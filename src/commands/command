@@ -1,0 +1,45 @@
+#!/bin/sh
+: "
+Name:
+	jarnik-command
+
+Description:
+	Creates a new Jarník command. Super user privileges may be required.
+
+Syntax:
+	jarnik command <name>
+
+Parameters:
+	name	Required	Name of the new command.
+
+Examples:
+	# Creating a new command for JBS called my-new-feature.
+		jarnik command my-new-feature
+
+	# After created, we will be able to run the new command.
+		jarnik my-new-feature ...
+
+: "
+
+. $jarnikdir/.core
+
+if [ $# -eq 0 ]; then
+	error	"Name for the new command is required."
+	syntax
+	exit 1
+fi
+debug	"Creating from template."
+sed -r s/#name/$1/g $jarnikdir/.template > "$jarnikdir/$1"
+
+debug	"Assigning execution permissions."
+chmod +x "$jarnikdir/$1"
+
+info	"Testing first call for '$jarnik $1'."
+"$jarnik" "$1"
+
+info	"Testing documentation for '$jarnik $1'."
+$jarnik help "$1"
+
+info	"Please provide an implementation in $jarnikdir/$1"
+warning	"Don't forget add a summary for '$1' in $jarnikdir/help"
+success	"Command '$1' was created successfully."

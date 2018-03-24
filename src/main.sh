@@ -7,20 +7,16 @@ export jarnik=`basename $0`
 export jarnikdir=`dirname $0`/.$jarnik
 . $jarnikdir/.core
 
-case "$1" in
-	install) command=install;;
-	uninstall) command=uninstall;;
-	upgrade) command=upgrade;;
-	new|-n|/n) command=new;;
-	help|-h|/?) command=help;;
-	*) command=help;;
-esac
+command=$jarnikdir/$1
+if [ $# -eq 0 ] || [ ! -x "$command" ] || echo "$command" | grep -Eq '/\.[^/]+$' ; then
+	command=$jarnikdir/help
+fi
 
 if [ $# -ge 1 ]; then
 	shift
 fi
 
-$jarnikdir/$command "$@" 
+"$command" "$@"
 
 export jarnik=
 export jarnikdir=

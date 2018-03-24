@@ -1,34 +1,44 @@
 #!/bin/sh
-
 : "
-Creates a new Jarník project with basic structure.
+Name:
+	jarnik-new
+
+Description:
+	Creates a new Jarník project with basic structure. A Jarník project is a
+	folder with metadata to ease repository deployment in a Kepler environment.
 
 Syntax:
 	jarnik new [path/]name
 
 Parameters:
-	path Optional. Path to create the new project folder. Current directory will be used by default.
-	name Required. Name of the project folder.
+	path	Optional	Path to create the new project folder. Current directory
+						will be used by default.
+
+	name	Required	Name of the project folder.
 
 Examples:
-	jarnik new myproject
-	jarnik new mystuff/myproject
+	# Creating a new project called 'myproject' in the current working directory.
+		jarnik new myproject
+
+	# Creating a new project called 'myproject' within 'mystuff' folder.
+		jarnik new mystuff/myproject
+
 : "
 
-. `dirname $0`/.core
+. $jarnikdir/.core
 
 project=$1
 working=`pwd`
 
-debug "Creating new project: '$project'"
+debug	"Creating new project: '$project'"
 if ! mkdir $project 2> /dev/null; then
-	error "Unable to create project '$project'."
+	error	"Unable to create project '$project'."
 	exit 1
 fi
 
 cd $project
-debug "Entering to project directory (`pwd`)."
-info "TO-DO: Implementation for project structure based-on YAML files and hidden folders."
-debug "Returning to original working directory."
+debug	"Entering to project directory (`pwd`)."
+info	"TO-DO: Implementation for project structure based-on YAML files and hidden folders."
+debug	"Returning to original working directory."
 cd $working
-success "Project '$project' was created sucessfully."
+success	"Project '$project' was created sucessfully."
