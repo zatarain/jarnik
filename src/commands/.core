@@ -1,0 +1,25 @@
+#!/bin/sh
+
+: "
+Jarník Build System [JBS] core functions.
+: "
+
+error(){
+	>&2 printf '%b' "\033[31;1m[  ERROR  ]: $@\033[0m\n"
+}
+
+success(){
+	>&2 printf '%b' "\033[32;1m[ SUCCESS ]: $@\033[0m\n"
+}
+
+warning(){
+	>&2 printf '%b' "\033[33;1m[ WARNING ]: $@\033[0m\n"
+}
+
+info(){
+	>&2 printf '%b' "\033[34;1m[  INFO   ]: $@\033[0m\n"
+}
+
+debug(){
+	>&2 printf '%b' "\033[39;1m[  DEBUG  ]: $@\033[0m\n"
+}
