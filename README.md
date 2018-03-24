@@ -53,7 +53,7 @@ We will call “legos” to the built repositories.
 
 ## Syntax
 
-`jarnik {command|shortcut} [params]`
+`jarnik <command> [params]`
 
 ### Installation
 
@@ -101,8 +101,7 @@ jarnik uninstall
 
 * Command: `help`
 * Description: Create a new project base structure.
-* Shortcut: `h`
-* Syntax: `jarnik {help | -h | /?} [command]`
+* Syntax: `jarnik help [command]`
 * Parameters:
     * `command`  Optional. Specific command to view documentation. A help summary for all commands will be shown if is omitted.
 * Examples:
@@ -110,16 +109,13 @@ jarnik uninstall
 ```
 jarnik help
 jarnik help new
-jarnik -h new
-jarnik new /?
 ```
 
 ### Create a new project
 
 * Command: `new`
 * Description: Create a new project base structure.
-* Shortcut: `n`
-* Syntax: `jarnik {new | -n | /n} [path/]name`
+* Syntax: `jarnik new [path/]name`
 * Parameters:
     * `path`  Optional. Path to create the new project folder. Current directory will be used by default.
     * `name` Required. Name of the project folder.
@@ -128,7 +124,5 @@ jarnik new /?
 ```
 jarnik new myproject
 jarnik new mystuff/myproject
-jarnik -n myproject
-jarnik /n mystuff/myproject
 ```
 
