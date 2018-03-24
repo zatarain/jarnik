@@ -1,54 +1,45 @@
 #!/bin/sh
 
-: '
+: "
 Jarník Build System [JBS]
 
 Syntax:
 	jarnik command [parameters]
 
 Commands:
-	build		b 	Builds repositories in the current project.
-	clean		c 	Removes the legos in the project.
-	deploy		d 	Deploys legos from the current project to a cloud environment.
-	exec		e 	Runs a command over the repositories in the current project.
-	help		h 	Shows this message or provide detailed help for an specific command.
-	import		i 	Clones a repository.
-	list		l 	Lists details about current project.
-	mst			m 	Minimun Spanning Tree
-	new			n 	Creates a new project.
-	post		p 	Posts a new code review.
+	build		b	Builds repositories in the current project.
+	clean		c	Removes the legos in the project.
+	deploy		d	Deploys legos from the current project to a cloud environment.
+	exec		e	Runs a command over the repositories in the current project.
+	help		h	Shows this message or provide detailed help for an specific command.
+	import		i	Clones a repository.
+	list		l	Lists details about current project.
+	mst			m	Minimun Spanning Tree
+	new			n	Creates a new project.
+	post		p	Posts a new code review.
 	release			Build + Test + Deploy
-	remove		r 	Removes repositories from the current project.
-	sanitize	s 	Sanitizes the source code.
-	test		t 	Performs unit testing for repositories in the current project.
-	unlink		u 	Unlinks cloud environments.
-	version		v 	Shows the current JBS version.
+	remove		r	Removes repositories from the current project.
+	sanitize	s	Sanitizes the source code.
+	test		t	Performs unit testing for repositories in the current project.
+	unlink		u	Unlinks cloud environments.
+	version		v	Shows the current JBS version.
 	wtf				Checks format of the source code.
 
 	install			Installs JBS.
+	setup			
 	uninstall		Uninstalls JBS.
 	upgrade			Upgrades JBS.
 
 For further information run:
 	jarnik help <command>
 
-#'
+: "
 
-command=$1
-case "$command" in
-	install)
-		command=install;;
-	uninstall)
-		command=uninstall;;
-	upgrade)
-		command=upgrade;;
-	new)
-		command=new;;
-	*)
-		command=help;;
-esac
+. $jarnikdir/.core
 
-command=`dirname $0`/$command
-if [ -x $command ]; then
-	sed -n "/^: '$/,/^#'$/p" $command | sed '1,1d;$d'
+command=$jarnikdir/$1
+if [ $# -eq 0 ] || [ ! -x "$command" ] || echo "$command" | grep -Eq '/\.[^/]+$' ; then
+	command=$0
 fi
+
+sed -n '/^: "$/,/^: "$/p' $command | sed -r '1,1d;$d;s/\\(.)/\1/g'

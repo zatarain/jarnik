@@ -1,6 +1,6 @@
 #!/bin/sh
 
-: '
+: "
 Creates a new Jarník project base structure.
 
 Syntax:
@@ -15,16 +15,22 @@ Examples:
 	jarnik new mystuff/myproject
 	jarnik -n myproject
 	jarnik /n mystuff/myproject
-#'
+: "
+
+. `dirname $0`/.core
 
 project=$1
 working=`pwd`
-echo "Creating new project: '$project'"
-if mkdir -p $project; then
-	cd $project
-	pwd
-	cd $working
-	echo "Project '$project' was created sucessfully!"
-else
-	echo "Unable to create project '$project'."
+
+debug "Creating new project: '$project'"
+if ! mkdir $project 2> /dev/null; then
+	error "Unable to create project '$project'."
+	exit 1
 fi
+
+cd $project
+debug "Entering to project directory (`pwd`)."
+info "TO-DO: Implementation for project structure based-on YAML files and hidden folders."
+debug "Returning to original working directory."
+cd $working
+success "Project '$project' was created sucessfully."
