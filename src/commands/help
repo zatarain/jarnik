@@ -13,6 +13,7 @@ Syntax:
 Commands:
 	build		Builds repositories in the current project.
 	clean		Removes the legos in the project.
+	command		Creates a new jarnik command.
 	deploy		Deploys legos from the current project to a Kepler environment.
 	exec		Runs a command over the repositories in the current project.
 	help		Shows this message or provide detailed help for an specific command.
