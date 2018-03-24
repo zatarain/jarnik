@@ -1,0 +1,30 @@
+#!/bin/sh
+: "
+Name:
+	jarnik-#name
+
+Description:
+	[This is the command description.]
+
+Syntax:
+	jarnik #name <param1> [param2]
+
+Parameters:
+	param1	Required	[This is param2 description.]
+
+	param2	Optional	[This is param1 description.]
+
+Examples:
+	# [This is example 1]
+		jarnik #name value2
+
+	# [This is example 2]
+		jarnik #name value1 value2
+
+: "
+
+. $jarnikdir/.core
+
+info	"[TO-DO: Implementation for command #name]"
+
+success	"[Command #name was executed sucessfully.]"
