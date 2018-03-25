@@ -5,7 +5,7 @@ Name:
 
 Description:
 	Creates a new Jarník project with basic structure. A Jarník project is a
-	folder with metadata to ease repository deployment in a Kepler environment.
+	folder with metadata to ease lego deployment in a Kepler environment.
 
 Syntax:
 	jarnik new [path/]name

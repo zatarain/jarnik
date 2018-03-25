@@ -11,21 +11,21 @@ Syntax:
 	jarnik command [parameters]
 
 Commands:
-	build		Builds repositories in the current project.
-	clean		Removes the legos in the project.
+	build		Builds legos in the current project.
+	clean		Removes built legos from the project.
 	command		Creates a new jarnik command.
-	deploy		Deploys legos from the current project to a Kepler environment.
-	exec		Runs a command over the repositories in the current project.
+	deploy		Deploys built legos from the current project to a Kepler environment.
+	exec		Runs a command over the legos in the current project.
 	help		Shows this message or provide detailed help for an specific command.
-	import		Clones a repository.
+	import		Clones a lego.
 	list		Lists details about current project.
 	mst			Minimun Spanning Tree
 	new			Creates a new project with basic structure.
 	post		Posts a new code review.
 	release		Build + Test + Deploy
-	remove		Removes repositories from the current project.
+	remove		Removes legos from the current project.
 	sanitize	Sanitizes the source code.
-	test		Performs unit testing for repositories in the current project.
+	test		Performs unit testing for legos in the current project.
 	unlink		Unlinks Kepler environments.
 	version		Shows the current JBS version.
 	wtf			Checks format of the source code.
