@@ -25,6 +25,6 @@ Examples:
 
 . $jarnikdir/.core
 
-info	"[TO-DO: Implementation for command #name]"
+warning	"[TO-DO: Implementation for command #name]"
 
 success	"[Command #name was executed sucessfully.]"

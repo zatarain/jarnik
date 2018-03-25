@@ -1,0 +1,39 @@
+#!/bin/sh
+: "
+Name:
+	jarnik-list
+
+Description:
+	List details of the current JBS project:
+		- Project name
+		- Project home directory
+		- Repositories in the project
+		- Linked Kepler environments
+		- MST associated to build
+
+Syntax:
+	jarnik list
+
+: "
+
+. $jarnikdir/.core
+home=`projectdir` || exit
+
+echo "- Project:"
+echo "\t`basename $home` @ `echo $home  | sed -r s#^$HOME#~#`"
+
+repositories=`ls $home`
+echo "- Repositories:"
+if ! [ -z "$repositories" ]; then
+	echo "$repositories" | xargs -Irepository echo -e "\t- repository"
+fi
+
+warning	"TO-DO: Associated MST to build."
+if ! [ -z "$mst" ]; then
+	echo "- MST:"
+fi
+
+warning	"TO-DO: List linked Kepler environments."
+if ! [ -z "$kepler" ]; then
+	echo "- Kepler:"
+fi

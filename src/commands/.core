@@ -27,3 +27,18 @@ debug(){
 syntax(){
 	>&2 echo "`grep --after=1 Syntax: "$0" | head -2`"
 }
+
+projectdir(){
+	workingdir=`pwd`
+	while [ `pwd` != '/' ]; do
+		if [ -d .$jarnik ]; then
+			pwd
+			cd $workingdir
+			return 0
+		fi
+		cd ..
+	done
+
+	error	"Current directory is not part of a Jarnik project."
+	return 1
+}

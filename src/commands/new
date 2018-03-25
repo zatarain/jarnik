@@ -11,7 +11,7 @@ Syntax:
 	jarnik new [path/]name
 
 Parameters:
-	path	Optional	Path to create the new project folder. Current directory
+	path	Optional	Path to create the new project directory. Current directory
 						will be used by default.
 
 	name	Required	Name of the project folder.
@@ -39,6 +39,7 @@ fi
 cd $project
 debug	"Entering to project directory (`pwd`)."
 info	"TO-DO: Implementation for project structure based-on YAML files and hidden folders."
+mkdir .$jarnik
 debug	"Returning to original working directory."
 cd $working
 success	"Project '$project' was created sucessfully."
