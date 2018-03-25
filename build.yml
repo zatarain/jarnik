@@ -1,0 +1,22 @@
+build: copy
+
+dependencies:
+	build:
+		shc: 3.9.0
+		g++: 5.4.0
+		yaml-cpp: 0.6.0
+	runtime:
+		curl: 7.47.0
+		yaml-cpp: 0.6.0
+	test:
+		bats: 1.0.0
+
+targets:
+	default:
+		name: copy
+		user: root
+		steps:
+			- mkdir -p usr/bin/
+			- cp -f main.sh usr/bin/jarnik
+			- cp -Rf commands usr/bin/.jarnik
+			- chmod +x -R usr/bin/jarnik usr/bin/.jarnik
