@@ -1,0 +1,49 @@
+#!/bin/sh
+: "
+Name:
+	jarnik-import
+
+Description:
+	Clones legos source code from Kirk.
+
+Syntax:
+	jarnik import <legos>
+
+Parameters:
+	legos	Required	List of space-separated lego names from Kirk.
+
+Examples:
+	# Importing a lego called 'mylego1' in the project.
+		jarnik import mylego1
+
+	# Importing two legos ('mylego1' and 'mylego2') in the project.
+		jarnik import mylego1 mylego2
+
+: "
+
+. $jarnikdir/.core
+if [ $# -eq 0 ]; then
+	error	"At least one lego is required."
+	syntax
+	exit 1
+fi
+
+home=`projectdir` || exit
+cd $home
+errors=0
+for lego in "$@"; do
+	source=`curl -vo - http://kirk.lattephp.net/legos/$lego 2> .lego`
+	if grep -q 'HTTP/1.1 200' .lego && git clone $source $home/$lego; then
+		success "$lego was imported to the project."
+	else
+		errors=$((errors+1))
+		error	"$lego was not imported to the project."
+	fi
+done
+
+if [ $errors -gt 0 ]; then
+	error	"$errors lego(s) not imported."
+	exit 1
+fi
+
+success	"All legos were imported."

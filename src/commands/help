@@ -17,7 +17,7 @@ Commands:
 	deploy		Deploys built legos from the current project to a Kepler environment.
 	exec		Runs a command over the legos in the current project.
 	help		Shows this message or provide detailed help for an specific command.
-	import		Clones a lego.
+	import		Clones a lego source code stored in Kirk.
 	list		Lists details about current project.
 	mst			Minimun Spanning Tree
 	new			Creates a new project with basic structure.

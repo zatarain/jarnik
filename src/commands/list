@@ -23,8 +23,8 @@ echo "- Project:"
 echo "\t`basename $home` @ `echo $home  | sed -r s#^$HOME#~#`"
 
 legos=`ls $home`
-echo "- legos:"
 if ! [ -z "$legos" ]; then
+	echo "- legos:"
 	echo "$legos" | xargs -Ilego echo -e "\t- lego"
 fi
 
