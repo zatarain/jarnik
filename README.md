@@ -50,7 +50,7 @@ In order to avoid confusions with the terms packages, name space, modules, etcet
 
 ### TOTALLY out of scope
 
-* Specific support for MacOS X or any Apple OS, if the Jarnik works as it, that is fine and enough, we won't implement any specific stuff for MacOS X development, for instance taking care about *.DS_Store* hidden directories.
+* Specific support for MacOS X or any Apple OS, if the Jarnik works as it is, that is fine and enough, we won't implement any specific stuff for MacOS X development, for instance taking care of *.DS_Store* hidden directories.
 * Java build support. The only way to support Java will be for Android Applications and really carefully reviewed.
 
 ## Syntax
