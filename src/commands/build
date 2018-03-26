@@ -11,19 +11,19 @@ Syntax:
 
 Parameters:
 	options	Optional	Flag options for the build process:
-							--backtrack		Build all dependencies importeed to the project first.
+							--backtrack		Builds all dependencies importeed to the project first.
 
 	legos	Optional	List of legos to build. By default, builds all legos imported in the
 						project or current lego if the working directory is within a lego.
 
 Examples:
-	# Build all legos in the current project.
+	# Building all legos in the current project.
 		jarnik build
 
-	# Build lego called 'mylego'
+	# Building lego called 'mylego'
 		jarnik build mylego
 
-	# Build lego called 'mylego' with all dependencies imported to the project first.
+	# Building lego called 'mylego' with all dependencies imported to the project first.
 		jarnik build --backtrack mylego
 : "
 

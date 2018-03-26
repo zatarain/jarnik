@@ -1,0 +1,74 @@
+#!/bin/sh
+: "
+Name:
+	jarnik-clean
+
+Description:
+	Cleans legos in the current project.
+
+Syntax:
+	jarnik clean [options] [legos]
+
+Parameters:
+	options	Optional	Flag options for the clean process:
+							--backtrack		Cleans all dependencies importeed to the project first.
+
+	legos	Optional	List of legos to clean. By default, cleans all legos imported in the
+						project or current lego if the working directory is within a lego.
+
+Examples:
+	# Cleaning all legos in the current project.
+		jarnik clean
+
+	# Cleaning lego called 'mylego'
+		jarnik clean mylego
+
+	# Cleaning lego called 'mylego' with all dependencies imported to the project first.
+		jarnik clean --backtrack mylego
+: "
+
+. $jarnikdir/.core
+home=`projectdir` || exit
+
+backtracking=
+if echo $1 | grep -Eq '^--backtrack$'; then
+	warning	"TO-DO: Implementation for backtracking."
+	backtracking=$1
+	shift
+fi
+
+legos="$@"
+if [ $# -eq 0 ]; then
+	legos=`legodir`
+	if [ -z "$legos" ]; then
+		legos=`ls $home`
+		debug	"We are going to clean all legos in the project :)"
+	fi
+elif [ $# -eq 1 ]; then
+	debug "Starting to clean '$1'..."
+	cd $home/$1
+	make clean
+	if [ $? -ne 0 ]; then
+		error	"Clean process for '$1' failed."
+		exit 1
+	fi
+	success	"Lego '$1' was cleaned."
+	exit 0
+fi
+
+if [ -z "$legos" ]; then
+	echo "Nothing to clean :("
+	exit 0
+fi
+
+debug	"We are going to clean: $legos"
+mkdir -p $home/.legos
+success=0
+for lego in "$legos"; do
+	$jarnik clean $backtracking $lego
+	success=$((success+1))
+done
+
+if [ $success -gt 1 ]; then
+	success	"All legos were cleaned."
+fi
