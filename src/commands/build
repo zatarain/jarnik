@@ -1,0 +1,74 @@
+#!/bin/sh
+: "
+Name:
+	jarnik-build
+
+Description:
+	Builds legos in the current project.
+
+Syntax:
+	jarnik build [options] [legos]
+
+Parameters:
+	options	Optional	Flag options for the build process:
+							--backtrack		Build all dependencies importeed to the project first.
+
+	legos	Optional	List of legos to build. By default, builds all legos imported in the
+						project or current lego if the working directory is within a lego.
+
+Examples:
+	# Build all legos in the current project.
+		jarnik build
+
+	# Build lego called 'mylego'
+		jarnik build mylego
+
+	# Build lego called 'mylego' with all dependencies imported to the project first.
+		jarnik build --backtrack mylego
+: "
+
+. $jarnikdir/.core
+home=`projectdir` || exit
+
+backtracking=
+if echo $1 | grep -Eq '^--backtrack$'; then
+	warning	"TO-DO: Implementation for backtracking."
+	backtracking=$1
+	shift
+fi
+
+legos="$@"
+if [ $# -eq 0 ]; then
+	legos=`legodir`
+	if [ -z "$legos" ]; then
+		legos=`ls $home`
+		debug	"We are going to build all legos in the project :)"
+	fi
+elif [ $# -eq 1 ]; then
+	debug "Starting to build '$1'..."
+	cd $home/$1
+	make
+	if [ $? -ne 0 ]; then
+		error	"Build process for '$1' failed."
+		exit 1
+	fi
+	success	"Lego '$1' was built."
+	exit 0
+fi
+
+if [ -z "$legos" ]; then
+	echo "Nothing to build :("
+	exit 0
+fi
+
+debug	"We are going to build: $legos"
+mkdir -p $home/.legos
+success=0
+for lego in "$legos"; do
+	$jarnik build $backtracking $lego
+	success=$((success+1))
+done
+
+if [ $success -gt 1 ]; then
+	success	"All legos were built."
+fi

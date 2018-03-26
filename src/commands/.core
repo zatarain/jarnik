@@ -42,3 +42,24 @@ projectdir(){
 	error	"Current directory is not part of a Jarnik project."
 	return 1
 }
+
+legodir(){
+	if [ -d .$jarnik ]; then
+		return 0
+	fi
+	workingdir=`pwd`
+	while [ `pwd` != '/' ]; do
+		if [ -d ../.$jarnik ]; then
+			lego=$(basename `pwd`)
+			if ! ( echo $lego | grep -Eq '^\.' ); then
+				echo $lego
+				cd $workingdir
+			fi
+			return 0
+		fi
+		cd ..
+	done
+
+	error	"Current directory is not part of a Jarnik project."
+	return 1
+}
