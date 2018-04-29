@@ -57,7 +57,7 @@ elif [ $# -eq 1 ]; then
 fi
 
 if [ -z "$legos" ]; then
-	echo "Nothing to clean :("
+	echo "Nothing to clean"
 	exit 0
 fi
 

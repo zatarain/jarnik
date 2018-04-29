@@ -2,14 +2,14 @@ build: copy
 
 dependencies:
 	build:
-		shc: 3.9.0
-		g++: 5.4.0
-		yaml-cpp: 0.6.0
+		shc: 3.9
+		g++: 5.4
+		Luhm: 1.0
 	runtime:
-		curl: 7.47.0
-		yaml-cpp: 0.6.0
+		curl: 7.47
+		Luhn: 1.0
 	test:
-		bats: 1.0.0
+		bats: 1.0
 
 targets:
 	default:
